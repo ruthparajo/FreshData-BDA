@@ -45,10 +45,6 @@ Per executar la pipeline s'ha de seguir el següent ordre de fitxers:
 5. KNN+KMeans.ipynb: S'executa el pipeline de dades aplicant 2 tipus de models per obtenir conclusions sobre les dades.
 6. descriptive_analysis.ipynb: S'executa un tercer pipeline de dades en el que es fa un anàlisi descriptiu de la base de dades compravenda_sup.
 
-### Data Analysis Pipeline
-
-SEGUIR AQUI
-
 ### Requisits:
 - Python 3.x
 - Jupyter Notebook
