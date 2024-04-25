@@ -15,35 +15,35 @@ pip install kaggle
 També es poden trobar en comentaris en els fitxers.
 
 ### Inclou els següents arxius:
-* landing_zone.ipynb: Notebook inicial que permet descarregar les bases de dades que es troben al directori data_lake
-* formatted_zone.ipynb: Notebook que permet transformar els fitxers de parquet a una base de dades estructurada que es troba al directori formatted_zone
-* trusted_zone.ipynb: Notebook que permet millorar la qualitat de les dades i les guarda en el directori trusted_zone
-* exploitation_zone.ipynb: Notebook que permet fer les combinacions necessàries de les dades per a poder ser introduïdes en el pipeline d'anàlisi de dades i guarda aquestes combinacions al directori exploited_zone
-* duckdb.jar: Fitxer que conté una llibreria de java per al funcionament de DuckDB
-* data_lake: Directori que conté les bases de dades generades per landing_zone.ipynb
-  * compravenda_sup.parquet: base de dades sobre la superfície de la compravenda de pisos de Barcelona (més informació a l'apartat de metadades)
-  * renda.parquet: base de dades sobre la renda tributària per seccions censals a Barcelona
-  * rent_price.parquet: base de dades sobre el preu de lloguer dels pisos de Barcelona
-* formatted_zone: Directori que conté les bases de dades generades per formatted_zone.ipynb
-  * freshdata.db: primera versió de la base de dades estructurada
-* trusted_zone: Directori que conté les bases de dades generades per trusted_zone.ipynb
-  * freshdata_trusted.db: base de dades estructurada i netejada
-* exploited_zone: Directori que conté les bases de dades generades per exploitation_zone.ipynb
-  * freshdata_exploited1.db: base de dades amb la selecció de dades necessàries per al notebook KNN+KMeans.ipynb
-  * freshdata_exploited2.db: base de dades amb la selecció de dades necessàries per al notebook descriptive_analysis.ipynb
-* data_analysis_pipelines: Directori que conté els pipelines d'anàlisis de dades
-  * KNN+KMeans.ipynb: fitxer que conté dos models, un KNN i un KMeans
-  * descriptive_analysis.ipynb: fitxer que conté un anàlisi descriptiu de la taula compravenda_sup
-  * duckdb.jar: fitxer que conté una llibreria de java per al funcionament de DuckDB
+* _landing_zone.ipynb_: Notebook inicial que permet descarregar les bases de dades que es troben al directori _data_lake_
+* _formatted_zone.ipynb_: Notebook que permet transformar els fitxers de parquet a una base de dades estructurada que es troba al directori _formatted_zone_
+* _trusted_zone.ipynb_: Notebook que permet millorar la qualitat de les dades i les guarda en el directori _trusted_zone_
+* _exploitation_zone.ipynb_: Notebook que permet fer les combinacions necessàries de les dades per a poder ser introduïdes en el pipeline d'anàlisi de dades i guarda aquestes combinacions al directori _exploited_zone_
+* _duckdb.jar_: Fitxer que conté una llibreria de java per al funcionament de DuckDB
+* _data_lake_: Directori que conté les bases de dades generades per _landing_zone.ipynb_
+  * _compravenda_sup.parquet_: base de dades sobre la superfície de la compravenda de pisos de Barcelona (més informació a l'apartat de metadades)
+  * _renda.parquet_: base de dades sobre la renda tributària per seccions censals a Barcelona
+  * _rent_price.parquet_: base de dades sobre el preu de lloguer dels pisos de Barcelona
+* _formatted_zone_: Directori que conté les bases de dades generades per _formatted_zone.ipynb_
+  * _freshdata.db_: primera versió de la base de dades estructurada
+* _trusted_zone_: Directori que conté les bases de dades generades per trusted_zone.ipynb
+  * _freshdata_trusted.db_: base de dades estructurada i netejada
+* _exploited_zone_: Directori que conté les bases de dades generades per _exploitation_zone.ipynb_
+  * _freshdata_exploited1.db_: base de dades amb la selecció de dades necessàries per al notebook _KNN+KMeans.ipynb_
+  * _freshdata_exploited2.db_: base de dades amb la selecció de dades necessàries per al notebook _descriptive_analysis.ipynb_
+* _data_analysis_pipelines_: Directori que conté els pipelines d'anàlisis de dades
+  * _KNN+KMeans.ipynb_: fitxer que conté dos models, un KNN i un KMeans
+  * _descriptive_analysis.ipynb_: fitxer que conté un anàlisi descriptiu de la taula _compravenda_sup_
+  * _duckdb.jar_: fitxer que conté una llibreria de java per al funcionament de DuckDB
 
 ### Data Engineering Pipeline
 Per executar la pipeline s'ha de seguir el següent ordre de fitxers:
-1. landing_zone.ipynb: S'adquireixen les dades i s'emmagatzemen en format parquet en el data lake, el qual es troba en la carpeta data_lake.
-2. formated_zone.ipynb: Es processen els parquets per emmagatzemar-los homogèniament a través del diseny duckdb amb PySpark. Es junten les tres bases de dades en una sola com 'Freshdata.db'. D'aquesta manera facilita el seu posterior accés.
-3. trusted_zone.ipynb: Es realitza el preprocés i nateja de dades per la posterior manipulació. S'aplica tractament de outliers i missings, renombrament i normalització de variables. 
-4. exploitation_zone.ipynb: Es combinen les diverses bases de dades per obtenir un format adequat pels models triats.
-5. KNN+KMeans.ipynb: S'executa el pipeline de dades aplicant 2 tipus de models per obtenir conclusions sobre les dades.
-6. descriptive_analysis.ipynb: S'executa un tercer pipeline de dades en el que es fa un anàlisi descriptiu de la base de dades compravenda_sup.
+1. _landing_zone.ipynb_: S'adquireixen les dades i s'emmagatzemen en format parquet en el data lake, el qual es troba en la carpeta _data_lake_.
+2. _formated_zone.ipynb_: Es processen els parquets per emmagatzemar-los homogèniament a través del diseny duckdb amb PySpark. Es junten les tres bases de dades en una sola com '_Freshdata.db_'. D'aquesta manera facilita el seu posterior accés.
+3. _trusted_zone.ipynb_: Es realitza el preprocés i nateja de dades per la posterior manipulació. S'aplica tractament de outliers i missings, renombrament i normalització de variables. 
+4. _exploitation_zone.ipynb_: Es combinen les diverses bases de dades per obtenir un format adequat pels models triats.
+5. _KNN+KMeans.ipynb_: S'executa el pipeline de dades aplicant 2 tipus de models per obtenir conclusions sobre les dades.
+6. _descriptive_analysis.ipynb_: S'executa un tercer pipeline de dades en el que es fa un anàlisi descriptiu de la base de dades _compravenda_sup_.
 
 ### Requisits:
 - Python 3.x
